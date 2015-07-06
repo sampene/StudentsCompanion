@@ -23,7 +23,7 @@
     <color name="ColorPrimaryDark">#1a237e</color>
     <color name="tabsScrollColor">#004D40</color>
     <color name="btn_green">#e56142</color>
-    <color name="btn_green_pressed">#c14e32</color>
+    <color name="btn_green_pressed">#f93e12</color>
     <drawable name="pressed_gray">#0c000000</drawable>
     <drawable name="selected_gray">#2c000000</drawable>
 </resources>
