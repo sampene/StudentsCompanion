@@ -2,6 +2,7 @@
     android:layout_width="fill_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#e0e0e0"
  >
     <!--android:background="#e0e0e0"-->
 
@@ -20,14 +21,9 @@
     android:layout_gravity="center_vertical"
     android:gravity="center"
     android:numColumns="2"
+    android:background="#e0e0e0"
     >
 </GridView>
-    <!--<LinearLayout-->
-        <!--android:id="@+id/eighty_percent_layout_holder"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:weightSum="1">-->
 
     <Button
         android:layout_width="fill_parent"
