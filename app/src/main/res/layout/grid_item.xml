@@ -10,7 +10,7 @@
 
 
     <android.support.v7.widget.CardView
-        android:layout_width="165dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         card_view:cardCornerRadius="0dp"
         android:layout_margin="5dp"
@@ -20,8 +20,8 @@
         <RelativeLayout
             android:id="@+id/top_layout"
             android:layout_gravity="center"
-            android:layout_width="165dp"
-            android:layout_height="160dp">
+            android:layout_width="160dip"
+            android:layout_height="160dip">
 
             <ImageView
                 android:id="@+id/img_thumbnail"
@@ -38,6 +38,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="bottom"
                 android:gravity="center"
+                android:paddingTop="10sp"
                 android:textColor="#999"
                 android:textSize="15dp"
                 android:text="Test"

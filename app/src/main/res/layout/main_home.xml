@@ -1,10 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
-
-
-    >
+    android:layout_height="match_parent"
+ >
     <!--android:background="#e0e0e0"-->
 
     <include android:id="@+id/tool_bar" layout="@layout/tool_bar"
@@ -15,31 +13,32 @@
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gridView1"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="0dip"
+    android:layout_weight="1"
     android:layout_margin="4dp"
     android:columnWidth="80dp"
     android:layout_gravity="center_vertical"
     android:gravity="center"
     android:numColumns="2"
-    android:stretchMode="columnWidth" >
+    >
 </GridView>
-    <LinearLayout
-        android:id="@+id/eighty_percent_layout_holder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/eighty_percent_layout_holder"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="1">-->
 
     <Button
         android:layout_width="fill_parent"
         android:gravity="center"
         android:id="@+id/continuebtn"
-        android:layout_weight="0.8"
+        android:layout_weight="0.05"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_green"
         android:layout_marginTop="20dp"
         android:textColor="#fff"
         android:text="Continue"
         />
-        </LinearLayout>
+        <!--</LinearLayout>-->
 </LinearLayout>
