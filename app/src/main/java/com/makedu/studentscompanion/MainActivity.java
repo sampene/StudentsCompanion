@@ -56,7 +56,20 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 button.setVisibility(View.VISIBLE);
-                school = "Polytechnic "+ position;
+                switch (position){
+                    case 0:
+                 school= "Bolga";
+                        break;
+                    case 1:
+                        school= "Cape";
+                        break;
+                    case 2:
+                        school= "Ho";
+                        break;
+                    case 3:
+                        school= "Takoradi";
+                        break;
+                }
 
             }
         });
