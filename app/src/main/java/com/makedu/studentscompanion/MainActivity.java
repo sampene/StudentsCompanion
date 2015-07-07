@@ -1,13 +1,18 @@
 package com.makedu.studentscompanion;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -33,13 +38,19 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.main_home);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-       button = (Button)findViewById(R.id.continuebtn);
+        button = (Button)findViewById(R.id.continuebtn);
         button.setVisibility(View.INVISIBLE);
 
         Bitmap bolga = BitmapFactory.decodeResource(this.getResources(), R.mipmap.bolgapoly);
         Bitmap cape = BitmapFactory.decodeResource(this.getResources(), R.mipmap.capecoast_poly);
         Bitmap ho = BitmapFactory.decodeResource(this.getResources(), R.mipmap.hopoly);
         Bitmap tadi = BitmapFactory.decodeResource(this.getResources(), R.mipmap.tpoly);
+
+
+        Animation fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
+        fadeIn.setDuration(500);
+
 
         gridArray.add(new Schools(bolga,"Bolga Poly"));
         gridArray.add(new Schools(cape,"Cape Coast Poly"));
@@ -51,11 +62,23 @@ public class MainActivity extends ActionBarActivity {
         gridView = (GridView) findViewById(R.id.gridView1);
         customGridAdapter = new CustomGridViewAdapter(this, R.layout.grid_item, gridArray);
         gridView.setAdapter(customGridAdapter);
+        gridView.startAnimation(fadeIn);
+
+
+
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //button.setVisibility(View.VISIBLE);
+                Animation fadeIn = new AlphaAnimation(0, 1);
+                fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
+                fadeIn.setDuration(1000);
+                button.startAnimation(fadeIn);
                 button.setVisibility(View.VISIBLE);
+
+
                 switch (position){
                     case 0:
                  school= "Bolga";

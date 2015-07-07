@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#e0e0e0"
+    android:animateLayoutChanges="true"
  >
     <!--android:background="#e0e0e0"-->
 
