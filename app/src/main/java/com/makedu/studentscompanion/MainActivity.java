@@ -1,6 +1,8 @@
 package com.makedu.studentscompanion;
 
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -21,6 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import adapter.CustomGridViewAdapter;
+import model.Preferences;
 import model.Schools;
 
 
@@ -36,6 +39,16 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_home);
+        //gets context preferences and does checks if the person has already selected a school
+        Preferences.myPrefs= getSharedPreferences(Preferences.prefernceName, Context.MODE_PRIVATE);
+        Preferences.context=this;
+
+        if(Preferences.getisLoggedIn()==true){
+            Intent ints= new Intent(this,StudentHome.class);
+            startActivity(ints);    //if school already selected, go to logged in scren
+            finish();
+        }
+
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         button = (Button)findViewById(R.id.continuebtn);
@@ -100,7 +113,10 @@ public class MainActivity extends ActionBarActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,school,Toast.LENGTH_LONG).show();
+                Preferences.setisLoggedIn(Preferences.context,true);
+                Preferences.setSelectedSchool(school);
+                Toast.makeText(MainActivity.this,Preferences.getSelectedSchool(), Toast.LENGTH_LONG).show();
+
             }
         });
 

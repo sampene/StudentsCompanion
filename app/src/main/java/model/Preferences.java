@@ -16,7 +16,7 @@ public class Preferences {
     public static String pref_Surname="surname";
     public static String pref_OthName="othname";
     public static String pref_Reg_done="no";
-    public static String pref_AccountNumber="";
+    public static String pref_USER_School="";
     public static Context context;
     private static final String IS_LOGGED_IN = "IS_LOGGED_IN";
     private static final String REG_DONE = "REG_DONE";
@@ -36,7 +36,6 @@ public class Preferences {
 
         edits.putString(pref_USER_ID, user_id);
 
-        edits.putString(pref_AccountNumber, accountnum);
 
         edits.commit();
     }
@@ -111,11 +110,6 @@ public class Preferences {
         return othname;
     }
 
-    public static String getaccount(){
-        String account = "33";
-        account = Preferences.myPrefs.getString(pref_AccountNumber, "");
-        return account;
-    }
 
     public static String getsurname(){
         String othname = "name";
@@ -123,6 +117,17 @@ public class Preferences {
         return othname;
     }
 
+    public static String getSelectedSchool(){
+        String selectedSchool = "school";
+        selectedSchool = Preferences.myPrefs.getString(pref_USER_School, "school");
+        return selectedSchool;
+    }
+
+    public static void setSelectedSchool(String School){
+        Editor edits = Preferences.myPrefs.edit();
+        edits.putString(pref_USER_School, School);
+        edits.commit();
+    }
 
 
 
