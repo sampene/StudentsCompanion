@@ -18,11 +18,11 @@ public class StudentHome extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.myWindowBackground));
         setSupportActionBar(toolbar);
 
         Toast.makeText(this, Preferences.getSelectedSchool(),Toast.LENGTH_SHORT).show();
         getSupportActionBar().setTitle(Preferences.getSelectedSchool());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

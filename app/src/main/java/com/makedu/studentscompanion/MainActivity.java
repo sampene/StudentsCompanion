@@ -49,7 +49,6 @@ public class MainActivity extends ActionBarActivity {
         }
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.myWindowBackground));
         setSupportActionBar(toolbar);
         button = (Button)findViewById(R.id.continuebtn);
         button.setVisibility(View.INVISIBLE);
