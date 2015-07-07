@@ -18,7 +18,6 @@ import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,7 +28,7 @@ import model.Schools;
 
 public class MainActivity extends ActionBarActivity {
     GridView gridView;
-    ArrayList<Schools> gridArray = new ArrayList<Schools>();
+    ArrayList<Schools> gridArray = new ArrayList<>();
     CustomGridViewAdapter customGridAdapter;
     Button button;
     String school;
@@ -43,13 +42,14 @@ public class MainActivity extends ActionBarActivity {
         Preferences.myPrefs= getSharedPreferences(Preferences.prefernceName, Context.MODE_PRIVATE);
         Preferences.context=this;
 
-        if(Preferences.getisLoggedIn()==true){
+        if(Preferences.getisLoggedIn()){
             Intent ints= new Intent(this,StudentHome.class);
             startActivity(ints);    //if school already selected, go to logged in scren
             finish();
         }
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.myWindowBackground));
         setSupportActionBar(toolbar);
         button = (Button)findViewById(R.id.continuebtn);
         button.setVisibility(View.INVISIBLE);
@@ -94,16 +94,16 @@ public class MainActivity extends ActionBarActivity {
 
                 switch (position){
                     case 0:
-                 school= "Bolga";
+                 school= "Bolga Poly";
                         break;
                     case 1:
-                        school= "Cape";
+                        school= "Cape-Coast Poly";
                         break;
                     case 2:
-                        school= "Ho";
+                        school= "Ho Poly";
                         break;
                     case 3:
-                        school= "Takoradi";
+                        school= "Takoradi Poly";
                         break;
                 }
 
@@ -115,7 +115,8 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Preferences.setisLoggedIn(Preferences.context,true);
                 Preferences.setSelectedSchool(school);
-                Toast.makeText(MainActivity.this,Preferences.getSelectedSchool(), Toast.LENGTH_LONG).show();
+               Intent student_main = new Intent(MainActivity.this,StudentHome.class);
+                startActivity(student_main);
 
             }
         });

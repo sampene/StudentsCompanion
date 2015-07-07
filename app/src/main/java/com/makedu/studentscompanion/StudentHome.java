@@ -1,10 +1,13 @@
 package com.makedu.studentscompanion;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import model.Preferences;
 
 
 public class StudentHome extends ActionBarActivity {
@@ -15,7 +18,12 @@ public class StudentHome extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.myWindowBackground));
         setSupportActionBar(toolbar);
+
+        Toast.makeText(this, Preferences.getSelectedSchool(),Toast.LENGTH_SHORT).show();
+        getSupportActionBar().setTitle(Preferences.getSelectedSchool());
+
     }
 
 
