@@ -25,6 +25,15 @@
     android:background="#e0e0e0"
     >
 </GridView>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/schoolselected"
+        android:textColor="#fff"
+        android:background="#ffa351"
+        android:text="YYYSSHSSHSS"
+        />
 
     <Button
         android:layout_width="fill_parent"
@@ -33,7 +42,6 @@
         android:layout_weight="0.05"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_btn_green"
-        android:layout_marginTop="20dp"
         android:textColor="#fff"
         android:text="Continue"
         />

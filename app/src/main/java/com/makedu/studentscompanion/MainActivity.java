@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
     CustomGridViewAdapter customGridAdapter;
     Button button;
     String school;
+    TextView schoolselected;
 
     Toolbar toolbar;
     @Override
@@ -47,7 +49,8 @@ public class MainActivity extends ActionBarActivity {
             startActivity(ints);    //if school already selected, go to logged in scren
             finish();
         }
-
+    schoolselected = (TextView)findViewById(R.id.schoolselected);
+        schoolselected.setVisibility(View.INVISIBLE);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         button = (Button)findViewById(R.id.continuebtn);
@@ -84,16 +87,12 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //button.setVisibility(View.VISIBLE);
-                Animation fadeIn = new AlphaAnimation(0, 1);
-                fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
-                fadeIn.setDuration(1000);
-                button.startAnimation(fadeIn);
-                button.setVisibility(View.VISIBLE);
+//                view.setBackgroundColor(getResources().getColor(R.color.myPrimaryColor));
 
 
                 switch (position){
                     case 0:
-                 school= "Bolga Poly";
+                        school= "Bolga Poly";
                         break;
                     case 1:
                         school= "Cape-Coast Poly";
@@ -105,6 +104,18 @@ public class MainActivity extends ActionBarActivity {
                         school= "Takoradi Poly";
                         break;
                 }
+
+                Animation fadeIn = new AlphaAnimation(0, 1);
+                fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
+                fadeIn.setDuration(700);
+                schoolselected.setText(school);
+                schoolselected.startAnimation(fadeIn);
+                schoolselected.setVisibility(View.VISIBLE);
+                button.startAnimation(fadeIn);
+                button.setVisibility(View.VISIBLE);
+
+
+
 
             }
         });
