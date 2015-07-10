@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
     CustomGridViewAdapter customGridAdapter;
     Button button;
     String school;
-    TextView schoolselected;
+    TextView schoolselected,instruction;
 
     Toolbar toolbar;
     @Override
@@ -49,7 +49,8 @@ public class MainActivity extends ActionBarActivity {
             startActivity(ints);    //if school already selected, go to logged in scren
             finish();
         }
-    schoolselected = (TextView)findViewById(R.id.schoolselected);
+        schoolselected = (TextView)findViewById(R.id.schoolselected);
+        instruction = (TextView)findViewById(R.id.instruction);
         schoolselected.setVisibility(View.INVISIBLE);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -88,7 +89,7 @@ public class MainActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //button.setVisibility(View.VISIBLE);
 //                view.setBackgroundColor(getResources().getColor(R.color.myPrimaryColor));
-
+                instruction.setVisibility(View.INVISIBLE);
 
                 switch (position){
                     case 0:
@@ -107,12 +108,14 @@ public class MainActivity extends ActionBarActivity {
 
                 Animation fadeIn = new AlphaAnimation(0, 1);
                 fadeIn.setInterpolator(new AccelerateInterpolator()); //add this
-                fadeIn.setDuration(700);
+                fadeIn.setDuration(400);
                 schoolselected.setText(school);
                 schoolselected.startAnimation(fadeIn);
                 schoolselected.setVisibility(View.VISIBLE);
                 button.startAnimation(fadeIn);
                 button.setVisibility(View.VISIBLE);
+
+
 
 
 
