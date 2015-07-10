@@ -7,4 +7,5 @@
     <string name="title_activity_student_home">StudentHome</string>
     <string name="select_school">Select your school to continue</string>
     <string name="enter_username">Enter username and Password to check results</string>
+    <string name="entername">Enter name</string>
 </resources>
